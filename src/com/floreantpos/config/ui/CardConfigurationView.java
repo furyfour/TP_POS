@@ -35,7 +35,6 @@ import com.floreantpos.Messages;
 import com.floreantpos.config.CardConfig;
 import com.floreantpos.extension.ExtensionManager;
 import com.floreantpos.extension.FloreantPlugin;
-import com.floreantpos.extension.MercuryGatewayPlugin;
 import com.floreantpos.extension.PaymentGatewayPlugin;
 import com.floreantpos.swing.DoubleTextField;
 import com.floreantpos.ui.dialog.POSMessageDialog;
@@ -94,12 +93,6 @@ public class CardConfigurationView extends ConfigurationView {
 	private void initialMerchantGateways() {
 		DefaultComboBoxModel<PaymentGatewayPlugin> model = new DefaultComboBoxModel<PaymentGatewayPlugin>();
 		List<FloreantPlugin> plugins = ExtensionManager.getPlugins(PaymentGatewayPlugin.class);
-
-		for (FloreantPlugin plugin : plugins) {
-			if (!(plugin instanceof MercuryGatewayPlugin)) {
-				model.addElement((PaymentGatewayPlugin) plugin);
-			}
-		}
 
 		cbGateway.setModel(model);
 		cbGateway.setSelectedItem(CardConfig.getPaymentGateway());

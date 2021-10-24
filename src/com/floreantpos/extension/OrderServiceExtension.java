@@ -28,7 +28,7 @@ import com.floreantpos.model.ShopTable;
 import com.floreantpos.ui.views.IView;
 import com.floreantpos.util.TicketAlreadyExistsException;
 
-public abstract class OrderServiceExtension extends AbstractFloreantPlugin {
+public abstract class OrderServiceExtension {
 	public abstract String getProductName();
 
 	public abstract String getDescription();

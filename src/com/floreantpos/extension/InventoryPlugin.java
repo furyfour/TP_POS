@@ -20,7 +20,7 @@ package com.floreantpos.extension;
 import javax.swing.AbstractAction;
 import javax.swing.JTabbedPane;
 
-public abstract class InventoryPlugin extends AbstractFloreantPlugin {
+public abstract class InventoryPlugin {
 	//	void showInventoryItemEntryDialog();
 	//	void showInventoryGroupEntryDialog();
 	//	void showInventoryLocationEntryDialog();

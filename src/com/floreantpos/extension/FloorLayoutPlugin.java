@@ -25,7 +25,7 @@ import com.floreantpos.model.Ticket;
 import com.floreantpos.ui.BeanEditor;
 import com.floreantpos.ui.tableselection.TableSelector;
 
-public abstract class FloorLayoutPlugin extends AbstractFloreantPlugin {
+public abstract class FloorLayoutPlugin {
 
 	public final static Dimension defaultFloorImageSize = new Dimension(400, 400);
 

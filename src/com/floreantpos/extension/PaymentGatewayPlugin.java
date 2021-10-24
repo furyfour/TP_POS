@@ -20,7 +20,7 @@ package com.floreantpos.extension;
 import com.floreantpos.config.ui.ConfigurationView;
 import com.floreantpos.ui.views.payment.CardProcessor;
 
-public abstract class PaymentGatewayPlugin extends AbstractFloreantPlugin {
+public abstract class PaymentGatewayPlugin {
 	public abstract boolean shouldShowCardInputProcessor();
 
 	public abstract ConfigurationView getConfigurationPane() throws Exception;
