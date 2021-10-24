@@ -40,51 +40,51 @@ public class ExtensionManager {
 	private static ExtensionManager instance;
 
 	private synchronized void initialize() {
-		PluginManager pluginManager = PluginManagerFactory.createPluginManager();
+		//PluginManager pluginManager = PluginManagerFactory.createPluginManager();
 
-		String jarLocation = JarUtil.getJarLocation(Application.class);
-		URI uri = new File(jarLocation).toURI();
-		pluginManager.addPluginsFrom(uri);
+		//String jarLocation = JarUtil.getJarLocation(Application.class);
+		//URI uri = new File(jarLocation).toURI();
+		//pluginManager.addPluginsFrom(uri);
 
-		String pluginsPath = System.getProperty("pluginsPath"); //$NON-NLS-1$
+		//String pluginsPath = System.getProperty("pluginsPath"); //$NON-NLS-1$
 
-		if (StringUtils.isNotEmpty(pluginsPath)) {
-			String[] paths = pluginsPath.split(","); //$NON-NLS-1$
-			for (String string : paths) {
-				pluginManager.addPluginsFrom(new File(string).toURI());
-			}
-		}
-		else {
-			pluginManager.addPluginsFrom(new File("plugins/").toURI()); //$NON-NLS-1$
-		}
+		//if (StringUtils.isNotEmpty(pluginsPath)) {
+		//	String[] paths = pluginsPath.split(","); //$NON-NLS-1$
+		//	for (String string : paths) {
+		//		pluginManager.addPluginsFrom(new File(string).toURI());
+		//	}
+		//}
+		//else {
+		//	pluginManager.addPluginsFrom(new File("plugins/").toURI()); //$NON-NLS-1$
+		//}
 
-		PluginManagerUtil pmUtil = new PluginManagerUtil(pluginManager);
-		List<Plugin> allPlugins = (List<Plugin>) pmUtil.getPlugins();
+		//PluginManagerUtil pmUtil = new PluginManagerUtil(pluginManager);
+		//List<Plugin> allPlugins = (List<Plugin>) pmUtil.getPlugins();
 
 		//sort plugins
-		java.util.Collections.sort(allPlugins, new Comparator<Plugin>() {
-			@Override
-			public int compare(Plugin o1, Plugin o2) {
-				return o1.getClass().getName().compareToIgnoreCase(o2.getClass().getName());
-			}
-		});
+		//java.util.Collections.sort(allPlugins, new Comparator<Plugin>() {
+		//	@Override
+		//	public int compare(Plugin o1, Plugin o2) {
+		//		return o1.getClass().getName().compareToIgnoreCase(o2.getClass().getName());
+		//	}
+		//});
 
 		List<FloreantPlugin> floreantPlugins = new ArrayList<FloreantPlugin>();
 
-		for (Plugin plugin : allPlugins) {
-			if (plugin instanceof FloreantPlugin) {
-				FloreantPlugin floreantPlugin = (FloreantPlugin) plugin;
-				if (floreantPlugin.requireLicense()) {
-					floreantPlugin.initLicense();
-					if (floreantPlugin.hasValidLicense()) {
-						floreantPlugins.add(floreantPlugin);
-					}
-				}
-				else {
-					floreantPlugins.add(floreantPlugin);
-				}
-			}
-		}
+		//for (Plugin plugin : allPlugins) {
+		//	if (plugin instanceof FloreantPlugin) {
+		//		FloreantPlugin floreantPlugin = (FloreantPlugin) plugin;
+		//		if (floreantPlugin.requireLicense()) {
+		//			floreantPlugin.initLicense();
+		//			if (floreantPlugin.hasValidLicense()) {
+		//				floreantPlugins.add(floreantPlugin);
+		//			}
+		//		}
+		//		else {
+		//			floreantPlugins.add(floreantPlugin);
+		//		}
+		//	}
+		//}
 
 		this.plugins = Collections.unmodifiableList(floreantPlugins);
 	}
@@ -106,11 +106,11 @@ public class ExtensionManager {
 	}
 
 	public static FloreantPlugin getPlugin(Class pluginClass) {
-		for (FloreantPlugin floreantPlugin : getInstance().plugins) {
-			if (pluginClass.isAssignableFrom(floreantPlugin.getClass())) {
-				return floreantPlugin;
-			}
-		}
+		//for (FloreantPlugin floreantPlugin : getInstance().plugins) {
+		//	if (pluginClass.isAssignableFrom(floreantPlugin.getClass())) {
+		//		return floreantPlugin;
+		//	}
+		//}
 
 		return null;
 	}

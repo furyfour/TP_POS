@@ -26,4 +26,8 @@ public abstract class PaymentGatewayPlugin {
 	public abstract ConfigurationView getConfigurationPane() throws Exception;
 
 	public abstract CardProcessor getProcessor();
+        
+        public abstract String getId();
+        
+        public abstract String getProductName();
 }

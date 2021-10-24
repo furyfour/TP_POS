@@ -16,25 +16,20 @@ import com.floreantpos.ui.views.payment.CardProcessor;
 public class InginicoPlugin extends PaymentGatewayPlugin {
 	InginicoConfigurationView view;
 
-	@Override
 	public String getProductName() {
 		return "Ingenico IWL220 TGI"; //$NON-NLS-1$
 	}
 
-	@Override
 	public void initUI() {
 	}
 
-	@Override
 	public void initBackoffice() {
 	}
 
-	@Override
 	public void initConfigurationView(JDialog dialog) {
 
 	}
 
-	@Override
 	public String getId() {
 		return String.valueOf("Inginico".hashCode()); // //$NON-NLS-1$
 	}
@@ -64,26 +59,21 @@ public class InginicoPlugin extends PaymentGatewayPlugin {
 		return true;
 	}
 
-	@Override
 	public List<AbstractAction> getSpecialFunctionActions() {
 		return null;
 	}
 
-	@Override
 	public void initLicense() {
 	}
 
-	@Override
 	public boolean hasValidLicense() {
 		return true;
 	}
 
-	@Override
 	public String getProductVersion() {
 		return null;
 	}
 
-	@Override
 	public Component getParent() {
 		return null;
 	}

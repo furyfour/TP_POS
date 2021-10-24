@@ -145,17 +145,14 @@ public class DefaultOrderServiceExtension extends OrderServiceExtension {
 	public void createCustomerMenu(JMenu menu) {
 	}
 
-	@Override
 	public void initBackoffice() {
 
 	}
 
-	@Override
 	public void initConfigurationView(JDialog dialog) {
 
 	}
 
-	@Override
 	public String getId() {
 		return String.valueOf("DefaultOrderServiceExtension".hashCode()); //$NON-NLS-1$
 	}
@@ -185,22 +182,18 @@ public class DefaultOrderServiceExtension extends OrderServiceExtension {
 		return null;
 	}
 
-	@Override
 	public List<AbstractAction> getSpecialFunctionActions() {
 		return null;
 	}
 
-	@Override
 	public String getProductVersion() {
 		return null;
 	}
 
-	@Override
 	public Component getParent() {
 		return null;
 	}
 
-	@Override
 	public boolean requireLicense() {
 		return false;
 	}

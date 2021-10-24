@@ -36,12 +36,10 @@ public class AuthorizeNetGatewayPlugin extends PaymentGatewayPlugin {
 	
 	protected DefaultMerchantGatewayConfigurationView view;
 	
-	@Override
 	public boolean requireLicense() {
 		return false;
 	}
 
-	@Override
 	public String getProductName() {
 		return "Authorize.Net"; //$NON-NLS-1$
 	}
@@ -57,17 +55,14 @@ public class AuthorizeNetGatewayPlugin extends PaymentGatewayPlugin {
 		return view;
 	}
 
-	@Override
 	public void initUI() {
 
 	}
 
-	@Override
 	public void initBackoffice() {
 
 	}
 	
-	@Override
 	public void initConfigurationView(JDialog dialog) {
 		
 	}
@@ -77,7 +72,6 @@ public class AuthorizeNetGatewayPlugin extends PaymentGatewayPlugin {
 		return getProductName();
 	}
 
-	@Override
 	public String getId() {
 		return ID;
 	}
@@ -92,26 +86,21 @@ public class AuthorizeNetGatewayPlugin extends PaymentGatewayPlugin {
 		return true;
 	}
 
-	@Override
 	public List<AbstractAction> getSpecialFunctionActions() {
 		return null;
 	}
 
-	@Override
 	public void initLicense() {
 	}
 
-	@Override
 	public boolean hasValidLicense() {
 		return true;
 	}
 
-	@Override
 	public String getProductVersion() {
 		return null;
 	}
 
-	@Override
 	public Component getParent() {
 		return null;
 	}
