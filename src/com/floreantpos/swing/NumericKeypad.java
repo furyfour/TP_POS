@@ -32,6 +32,7 @@ import javax.swing.text.JTextComponent;
 import com.floreantpos.Messages;
 import com.floreantpos.swing.event.KeypadEvent;
 import com.floreantpos.swing.event.KeypadEventListener;
+//import java.awt.Color;
 
 /**
  * 
@@ -77,6 +78,7 @@ public class NumericKeypad extends javax.swing.JComponent {
 	// <editor-fold defaultstate="collapsed" desc="Generated Code">
 	private void initComponents() {
 		keypadPanel = new javax.swing.JPanel();
+//                keypadPanel.setBackground(Color.decode("#4d4d4d"));
 		posButton7 = new com.floreantpos.swing.PosButton();
 		posButton7.setFocusable(false);
 		posButton8 = new com.floreantpos.swing.PosButton();

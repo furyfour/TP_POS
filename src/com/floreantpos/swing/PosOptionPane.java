@@ -52,6 +52,7 @@ public class PosOptionPane extends OkCancelOptionDialog {
 		setResizable(false);
 
 		JPanel contentPane = getContentPanel();
+                //contentPane.setBackground(Color.decode("#4d4d4d"));
 
 		MigLayout layout = new MigLayout("inset 0"); //$NON-NLS-1$ 
 		contentPane.setLayout(layout);

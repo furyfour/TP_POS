@@ -92,9 +92,9 @@ public class KitchenDisplayView extends ViewPanel implements ActionListener {
 			headerPanel = new HeaderPanel();
 			firstTopPanel.add(headerPanel, BorderLayout.NORTH);
 		}
-
+                firstTopPanel.setBackground(Color.decode("#4d4d4d"));
 		filterPanel = new JPanel();
-
+                filterPanel.setBackground(Color.decode("#4d4d4d"));
 		PosButton btnBack = new PosButton(Messages.getString("KitchenDisplayView.1")); //$NON-NLS-1$
 		btnBack.addActionListener(new ActionListener() {
 
@@ -138,13 +138,15 @@ public class KitchenDisplayView extends ViewPanel implements ActionListener {
 		
 		Font filterFont = getFont().deriveFont(Font.BOLD, 12f);
 		lblFilter = new JLabel("Filter: All Printers- All Orders"); //$NON-NLS-1$
-		lblFilter.setForeground(new Color(49, 106, 196));
+		//lblFilter.setForeground(new Color(49, 106, 196));
+                lblFilter.setForeground(Color.WHITE);
 		lblFilter.setFont(filterFont);
 		topPanel.add(lblFilter);
 		topPanel.add(btnFilter,"w "+ size.width+"!,h "+size.height+"!"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		topPanel.add(btnBack, "w "+ size.width+"!, h "+size.height+"!"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		topPanel.setBackground(Color.white);
-
+		//topPanel.setBackground(Color.white);
+                topPanel.setBackground(Color.decode("#4d4d4d"));
+                        
 		cbTicketTypes.setFont(font);
 		cbTicketTypes.setRenderer(new PosComboRenderer());
 		DefaultComboBoxModel<OrderType> ticketTypeModel = new DefaultComboBoxModel<OrderType>();

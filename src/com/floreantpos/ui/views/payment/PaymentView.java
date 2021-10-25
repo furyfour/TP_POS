@@ -120,7 +120,7 @@ public class PaymentView extends JPanel {
 		setLayout(new MigLayout("fill", "[grow][grow]", ""));
 
 		JPanel leftPanel = new JPanel(new BorderLayout(5, 5));
-
+                
 		TransparentPanel transparentPanel1 = new TransparentPanel(new BorderLayout(5, 5));
 
 		labelDueAmount = new javax.swing.JLabel();
