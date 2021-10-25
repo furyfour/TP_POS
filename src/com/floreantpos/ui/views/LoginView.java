@@ -95,9 +95,11 @@ public class LoginView extends ViewPanel {
 		width = PosUIManager.getSize(600);
 		height = PosUIManager.getSize(100);
 		centerPanel.setLayout(new MigLayout("al center center", "sg fill", String.valueOf(height))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		JLabel titleLabel = new JLabel(IconFactory.getIcon("/ui_icons/", "title.png")); //$NON-NLS-1$ //$NON-NLS-2$
+		//JLabel titleLabel = new JLabel(IconFactory.getIcon("/ui_icons/", "title.png")); //$NON-NLS-1$ //$NON-NLS-2$
+                JLabel titleLabel = new JLabel(IconFactory.getIcon("/ui_icons/", "TP_POS.png")); //$NON-NLS-1$ //$NON-NLS-2$
 		titleLabel.setOpaque(true);
-		titleLabel.setBackground(Color.WHITE);
+		//titleLabel.setBackground(Color.WHITE);
+                titleLabel.setBackground(Color.decode("#4d4d4d"));
 
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(titleLabel, BorderLayout.CENTER);
@@ -110,12 +112,14 @@ public class LoginView extends ViewPanel {
 	private JPanel createCenterPanel() {
 
 		lblTerminalId = new JLabel(Messages.getString("LoginView.0")); //$NON-NLS-1$
-		lblTerminalId.setForeground(Color.BLACK);
-		lblTerminalId.setFont(new Font("Dialog", Font.BOLD, PosUIManager.getFontSize(18))); //$NON-NLS-1$
+		//lblTerminalId.setForeground(Color.BLACK);
+                lblTerminalId.setForeground(Color.WHITE);
+                lblTerminalId.setFont(new Font("Dialog", Font.BOLD, PosUIManager.getFontSize(18))); //$NON-NLS-1$
 		lblTerminalId.setHorizontalAlignment(SwingConstants.CENTER);
 
 		mainPanel = new JPanel(new BorderLayout());
 		mainPanel.add(lblTerminalId, BorderLayout.NORTH);
+                mainPanel.setBackground(Color.decode("#4d4d4d"));
 
 		btnSwitchBoard = new PosButton(POSConstants.ORDERS);
 		btnKitchenDisplay = new PosButton(POSConstants.KITCHEN_DISPLAY_BUTTON_TEXT);
@@ -133,7 +137,11 @@ public class LoginView extends ViewPanel {
 
 		JPanel panel3 = new JPanel(new GridLayout(1, 0, 5, 5));
 		JPanel panel4 = new JPanel(new MigLayout("fill, ins 0, hidemode 3", "sg, fill", ""));
-
+                panel1.setBackground(Color.decode("#4d4d4d"));
+                panel2.setBackground(Color.decode("#4d4d4d"));
+                panel3.setBackground(Color.decode("#4d4d4d"));
+                panel4.setBackground(Color.decode("#4d4d4d"));
+                centerPanel.setBackground(Color.decode("#4d4d4d"));
 		centerPanel.add(panel1, "cell 0 0, wrap, w " + width + "px, h " + height + "px, grow");
 
 		panel3.add(btnSwitchBoard);

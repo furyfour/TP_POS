@@ -88,11 +88,13 @@ public class HeaderPanel extends JPanel {
 		//	super(new MigLayout("ins 2 2 0 2,hidemode 3", "[][fill, grow][]", "")); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
 		super(new BorderLayout());
 		setOpaque(true);
-		setBackground(Color.white);
+		//setBackground(Color.white);
+                setBackground(Color.decode("#4d4d4d"));
 
 		buttonPanel = new JPanel(new MigLayout("hidemode 3", "", ""));
-		buttonPanel.setBackground(Color.white);
-
+		//buttonPanel.setBackground(Color.white);
+                buttonPanel.setBackground(Color.decode("#4d4d4d"));
+                
 		JLabel logoLabel = new JLabel(IconFactory.getIcon("/ui_icons/", "header-logo.png")); //$NON-NLS-1$ //$NON-NLS-2$
 		//	add(logoLabel);
 		add(logoLabel, BorderLayout.WEST);
