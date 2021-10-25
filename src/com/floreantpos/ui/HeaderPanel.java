@@ -95,7 +95,8 @@ public class HeaderPanel extends JPanel {
 		//buttonPanel.setBackground(Color.white);
                 buttonPanel.setBackground(Color.decode("#4d4d4d"));
                 
-		JLabel logoLabel = new JLabel(IconFactory.getIcon("/ui_icons/", "header-logo.png")); //$NON-NLS-1$ //$NON-NLS-2$
+		//JLabel logoLabel = new JLabel(IconFactory.getIcon("/ui_icons/", "header-logo.png")); //$NON-NLS-1$ //$NON-NLS-2$
+                JLabel logoLabel = new JLabel(IconFactory.getIcon("/ui_icons/", "tp_pos-logo.png")); //$NON-NLS-1$ //$NON-NLS-2$
 		//	add(logoLabel);
 		add(logoLabel, BorderLayout.WEST);
 
@@ -104,11 +105,13 @@ public class HeaderPanel extends JPanel {
 		statusLabel.setFont(statusLabel.getFont().deriveFont(Font.BOLD));
 		statusLabel.setHorizontalAlignment(JLabel.CENTER);
 		statusLabel.setVerticalAlignment(JLabel.BOTTOM);
+                statusLabel.setForeground(Color.WHITE);
 		statusPanel.add(statusLabel, "grow"); //$NON-NLS-1$
 		logoffLabel = new JLabel();
 		logoffLabel.setFont(statusLabel.getFont().deriveFont(Font.BOLD));
 		logoffLabel.setHorizontalAlignment(JLabel.CENTER);
 		logoffLabel.setVerticalAlignment(JLabel.TOP);
+                logoffLabel.setForeground(Color.WHITE);
 		statusPanel.add(logoffLabel, "newline, growx"); //$NON-NLS-1$
 
 		//add(statusPanel, "grow"); //$NON-NLS-1$
