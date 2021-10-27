@@ -43,6 +43,7 @@ import org.jdesktop.swingx.JXTitledSeparator;
 import com.floreantpos.POSConstants;
 import com.floreantpos.config.TerminalConfig;
 import com.floreantpos.swing.PosButton;
+import java.awt.Color;
 
 public abstract class SelectionView extends JPanel implements ComponentListener {
 	private final static int HORIZONTAL_GAP = 5;
@@ -70,8 +71,12 @@ public abstract class SelectionView extends JPanel implements ComponentListener 
 
 	public SelectionView(String title, int buttonWidth, int buttonHeight) {
 		this.title = title;
+                this.setOpaque(true);
 		this.buttonSize = new Dimension(buttonWidth, buttonHeight);
-
+                setBackground(Color.decode("#4d4d4d"));
+                cardLayoutContainer.setOpaque(true);
+                cardLayoutContainer.setBackground(Color.decode("#4d4d4d"));
+                
 		border = new TitledBorder(title);
 		border.setTitleJustification(TitledBorder.CENTER);
 		setBorder(new CompoundBorder(border, new EmptyBorder(2, 2, 2, 2)));
@@ -79,6 +84,8 @@ public abstract class SelectionView extends JPanel implements ComponentListener 
 		setLayout(new BorderLayout(HORIZONTAL_GAP, VERTICAL_GAP));
 
 		buttonPanelContainer.add(cardLayoutContainer);
+                buttonPanelContainer.setBackground(Color.decode("#4d4d4d"));
+                buttonPanelContainer.setOpaque(true);
 		add(buttonPanelContainer);
 
 		btnPrev = new PosButton();
@@ -89,6 +96,7 @@ public abstract class SelectionView extends JPanel implements ComponentListener 
 		btnNext.setText(POSConstants.CAPITAL_NEXT);
 		actionButtonPanel.add(btnNext, "grow, align center"); //$NON-NLS-1$
 
+                actionButtonPanel.setBackground(Color.decode("#4d4d4d"));
 		add(actionButtonPanel, BorderLayout.SOUTH);
 
 		ScrollAction action = new ScrollAction();
@@ -103,6 +111,7 @@ public abstract class SelectionView extends JPanel implements ComponentListener 
 
 	public SelectionView(String title) {
 		this(title, 120, TerminalConfig.getMenuItemButtonHeight());
+                setBackground(Color.decode("#4d4d4d"));
 	}
 
 	public void setTitle(String title) {
@@ -327,6 +336,7 @@ public abstract class SelectionView extends JPanel implements ComponentListener 
 		public ButtonPanel(String name) {
 			setName(name);
 			setBorder(null);
+                        setBackground(Color.decode("#4d4d4d"));
 		}
 	}
 }

@@ -135,9 +135,11 @@ public class PaymentView extends JPanel {
 		labelTenderedAmount.setFont(font1);
 		labelTenderedAmount.setText(Messages.getString("PaymentView.54") + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$ //$NON-NLS-2$
 		labelTenderedAmount.setForeground(Color.WHITE);
+                
 
 		txtTenderedAmount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 		txtTenderedAmount.setFont(font1);
+                txtTenderedAmount.setBackground(Color.WHITE);
 
 		labelDueAmount.setFont(font1);
 		labelDueAmount.setText(Messages.getString("PaymentView.52") + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$ //$NON-NLS-2$
@@ -146,6 +148,7 @@ public class PaymentView extends JPanel {
 		txtDueAmount.setFont(font1);
 		txtDueAmount.setEditable(false);
 		txtDueAmount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+                txtDueAmount.setBackground(Color.WHITE);
 
 		transparentPanel1.setLayout(new MigLayout("", "[][grow,fill]", "[grow][][grow]")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		transparentPanel1.add(labelDueAmount, "cell 0 0,alignx right,aligny center"); //$NON-NLS-1$

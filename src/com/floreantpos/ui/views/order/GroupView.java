@@ -65,7 +65,7 @@ public class GroupView extends SelectionView {
 	/** Creates new form GroupView */
 	public GroupView() {
 		super(com.floreantpos.POSConstants.GROUPS, PosUIManager.getSize(100), PosUIManager.getSize(60));
-
+                
 		//removeAll();
 		//buttonsPanel.setLayout(new GridLayout(1, 0, 5, 5));
 		remove(actionButtonPanel);

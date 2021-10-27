@@ -36,6 +36,7 @@ import com.floreantpos.swing.PosUIManager;
 import com.floreantpos.swing.TransparentPanel;
 import com.floreantpos.ui.TitlePanel;
 import com.floreantpos.util.POSUtil;
+import java.awt.Color;
 
 public abstract class OkCancelOptionDialog extends POSDialog {
 	private PosButton btnOk;
@@ -48,12 +49,14 @@ public abstract class OkCancelOptionDialog extends POSDialog {
 		super(POSUtil.getBackOfficeWindow(), "");
 		init();
 		titlePanel.setTitle("");
+                titlePanel.setBackground(Color.decode("#4d4d4d"));
 	}
 
 	public OkCancelOptionDialog(String title) {
 		super(Application.getPosWindow(), title);
 		init();
 		titlePanel.setTitle(title);
+                titlePanel.setBackground(Color.decode("#4d4d4d"));
 	}
 
 	public OkCancelOptionDialog(Window owner) {
@@ -79,17 +82,26 @@ public abstract class OkCancelOptionDialog extends POSDialog {
 
 		titlePanel = new TitlePanel();
 		add(titlePanel, BorderLayout.NORTH);
+                titlePanel.setBackground(Color.decode("#4d4d4d"));
 
 		contentPanel = new TransparentPanel();
+                contentPanel.setOpaque(true);
+                contentPanel.setBackground(Color.decode("#4d4d4d"));
 		contentPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+                
 		add(contentPanel, BorderLayout.CENTER);
 
 		JSeparator jSeparator1 = new JSeparator();
+                jSeparator1.setBackground(Color.decode("#4d4d4d"));
+                jSeparator1.setVisible(false);
 		TransparentPanel buttonPanel = new TransparentPanel();
+                buttonPanel.setBackground(Color.decode("#4d4d4d"));
 		btnOk = new PosButton();
 		btnCancel = new PosButton();
 
 		TransparentPanel southPanel = new TransparentPanel();
+                southPanel.setOpaque(true);
+                southPanel.setBackground(Color.decode("#4d4d4d"));
 		southPanel.setLayout(new BorderLayout());
 
 		buttonPanel.setLayout(new FlowLayout());

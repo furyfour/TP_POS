@@ -84,23 +84,30 @@ public class PasswordEntryDialog extends OkCancelOptionDialog implements ActionL
 		btnClearAll.setText(Messages.getString("PasswordEntryDialog.12"));
 
 		JPanel contentPane = new JPanel(new BorderLayout(10, 10));
+                contentPane.setBackground(Color.decode("#4d4d4d"));
 		getContentPanel().add(contentPane);
 
 		JPanel inputPanel = createInputPanel();
+                inputPanel.setBackground(Color.decode("#4d4d4d"));
 		contentPane.add(inputPanel, BorderLayout.NORTH);
 
 		JPanel keyboardPanel = createKeyboardPanel();
+                keyboardPanel.setBackground(Color.decode("#4d4d4d"));
 		contentPane.add(keyboardPanel);
 	}
 
 	private JPanel createInputPanel() {
 		JPanel inputPanel = new JPanel(new BorderLayout(5, 5));
+                
+                inputPanel.setBackground(Color.decode("#4d4d4d"));
+                
 
 		tfPassword = new JPasswordField();
 		tfPassword.setFont(tfPassword.getFont().deriveFont(Font.BOLD, PosUIManager.getNumberFieldFontSize()));
 		tfPassword.setFocusable(true);
 		tfPassword.requestFocus();
-		tfPassword.setBackground(Color.WHITE);
+		tfPassword.setBackground(Color.decode("#4d4d4d"));
+                tfPassword.setForeground(Color.WHITE);
 		tfPassword.addKeyListener(new KeyListener() {
 
 			@Override
@@ -128,6 +135,7 @@ public class PasswordEntryDialog extends OkCancelOptionDialog implements ActionL
 
 		statusLabel = new JLabel();
 		statusLabel.setHorizontalAlignment(JLabel.CENTER);
+                statusLabel.setForeground(Color.WHITE);
 		inputPanel.add(statusLabel);
 
 		return inputPanel;
