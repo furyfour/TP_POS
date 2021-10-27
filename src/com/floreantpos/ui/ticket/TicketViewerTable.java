@@ -59,6 +59,7 @@ public class TicketViewerTable extends JTable {
 		setAutoscrolls(true);
 		setShowGrid(true);
 		setBorder(null);
+                setBackground(Color.WHITE);
 
 		setFocusable(false);
 

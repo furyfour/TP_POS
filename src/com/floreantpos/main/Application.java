@@ -20,6 +20,7 @@ package com.floreantpos.main;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Color;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -85,6 +86,7 @@ import com.floreantpos.util.UserNotFoundException;
 import com.jgoodies.looks.plastic.PlasticXPLookAndFeel;
 import com.jgoodies.looks.plastic.theme.ExperienceBlue;
 import com.orocube.common.util.TerminalUtil;
+import java.awt.Color;
 
 public class Application {
 	private static Log logger = LogFactory.getLog(Application.class);
@@ -125,6 +127,7 @@ public class Application {
 		posWindow.setIconImage(applicationIcon.getImage());
 		posWindow.setupSizeAndLocation();
 		posWindow.setVisibleWelcomeHeader(true);
+                posWindow.setBackground(Color.decode("#4d4d4d"));
 		if (TerminalConfig.isFullscreenMode()) {
 			posWindow.enterFullScreenMode();
 		}

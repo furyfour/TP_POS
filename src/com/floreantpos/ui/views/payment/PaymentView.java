@@ -120,6 +120,7 @@ public class PaymentView extends JPanel {
 		setLayout(new MigLayout("fill", "[grow][grow]", ""));
 
 		JPanel leftPanel = new JPanel(new BorderLayout(5, 5));
+                leftPanel.setBackground(Color.decode("#4d4d4d"));
                 
 		TransparentPanel transparentPanel1 = new TransparentPanel(new BorderLayout(5, 5));
 
@@ -133,14 +134,14 @@ public class PaymentView extends JPanel {
 
 		labelTenderedAmount.setFont(font1);
 		labelTenderedAmount.setText(Messages.getString("PaymentView.54") + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$ //$NON-NLS-2$
-		labelTenderedAmount.setForeground(Color.gray);
+		labelTenderedAmount.setForeground(Color.WHITE);
 
 		txtTenderedAmount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 		txtTenderedAmount.setFont(font1);
 
 		labelDueAmount.setFont(font1);
 		labelDueAmount.setText(Messages.getString("PaymentView.52") + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$ //$NON-NLS-2$
-		labelDueAmount.setForeground(Color.gray);
+		labelDueAmount.setForeground(Color.WHITE);
 
 		txtDueAmount.setFont(font1);
 		txtDueAmount.setEditable(false);
@@ -383,13 +384,14 @@ public class PaymentView extends JPanel {
 		//	calcButtonPanel.add(btnPrint, "growx"); //$NON-NLS-1$
 
 		JPanel panel4 = new JPanel(new GridLayout(1, 0, 5, 5));
+                panel4.setBackground(Color.decode("#4d4d4d"));
 		panel4.add(btnGratuity);
 		panel4.add(btnDiscount);
 		panel4.add(btnPrint);
 
 		calcButtonPanel.add(panel4, "span 4,growx"); //$NON-NLS-1$
+                
 		leftPanel.add(calcButtonPanel, BorderLayout.CENTER);
-
 		actionButtonPanel = new com.floreantpos.swing.TransparentPanel();
 		actionButtonPanel.setOpaque(true);
 		actionButtonPanel.setLayout(new MigLayout("hidemode 3,wrap 1, ins 0 20 0 0, fill", "sg, fill", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -398,6 +400,7 @@ public class PaymentView extends JPanel {
 		int width = PosUIManager.getSize(160);
 
 		btnCash = new com.floreantpos.swing.PosButton(Messages.getString("PaymentView.31")); //$NON-NLS-1$
+                actionButtonPanel.setBackground(Color.decode("#4d4d4d"));
 		actionButtonPanel.add(btnCash, "grow,w " + width + "!"); //$NON-NLS-1$ //$NON-NLS-2$
 		btnCash.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {

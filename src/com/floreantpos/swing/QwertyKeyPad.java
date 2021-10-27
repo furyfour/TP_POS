@@ -40,6 +40,7 @@ import org.jdesktop.swingx.JXCollapsiblePane;
 
 import com.floreantpos.Messages;
 import com.floreantpos.PosLog;
+import java.awt.Color;
 
 public class QwertyKeyPad extends JXCollapsiblePane implements ActionListener, ChangeListener {
 	Font buttonFont = getFont().deriveFont(Font.BOLD, PosUIManager.getFontSize(24));
@@ -62,15 +63,18 @@ public class QwertyKeyPad extends JXCollapsiblePane implements ActionListener, C
 
 	private void createUI() {
 		setLayout(new BorderLayout(0, 0));
+                getContentPane().setBackground(Color.decode("#4d4d4d"));
 
 		TransparentPanel centerPanel = new TransparentPanel(new GridLayout(0, 1, 2, 2));
 		centerPanel.add(addButtonsToPanel(s1));
 		centerPanel.add(addButtonsToPanel(s2));
 		centerPanel.add(addButtonsToPanel(s3));
 		centerPanel.add(addButtonsToPanel(s4));
+                centerPanel.setBackground(Color.decode("#4d4d4d"));
 		add(centerPanel, BorderLayout.CENTER);
 
 		JPanel eastPanel = new JPanel(new GridLayout(0, 1, 2, 2));
+                eastPanel.setBackground(Color.decode("#4d4d4d"));
 		PosButton button = new PosButton();
 		button.setText(Messages.getString("QwertyKeyPad.1")); //$NON-NLS-1$
 		button.setFocusable(false);
@@ -101,6 +105,7 @@ public class QwertyKeyPad extends JXCollapsiblePane implements ActionListener, C
 
 	private TransparentPanel addButtonsToPanel(String[] buttonText) {
 		TransparentPanel panel = new TransparentPanel(new GridLayout(0, s1.length, 2, 2));
+                panel.setBackground(Color.decode("#4d4d4d"));
 		for (int i = 0; i < buttonText.length; i++) {
 			String s = buttonText[i];
 			PosButton button = new PosButton();
@@ -170,6 +175,7 @@ public class QwertyKeyPad extends JXCollapsiblePane implements ActionListener, C
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
+                frame.setBackground(Color.decode("#4d4d4d"));
 		final QwertyKeyPad comp = new QwertyKeyPad();
 		frame.add(comp);
 		comp.addComponentListener(new ComponentListener() {

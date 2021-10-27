@@ -80,6 +80,7 @@ import com.floreantpos.util.CurrencyUtil;
 import com.floreantpos.util.DrawerUtil;
 import com.floreantpos.util.NumberUtil;
 import com.floreantpos.util.POSUtil;
+import java.awt.Color;
 
 //TODO: REVISE CODE
 public class SettleTicketDialog extends POSDialog implements CardInputListener {
@@ -122,6 +123,7 @@ public class SettleTicketDialog extends POSDialog implements CardInputListener {
 		getContentPane().setLayout(new BorderLayout());
 
 		JPanel centerPanel = new JPanel(new BorderLayout(5, 5));
+                centerPanel.setBackground(Color.decode("#4d4d4d"));
 		centerPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 0));
 
 		ticketViewerTable = new TicketViewerTable(ticket);
@@ -133,6 +135,7 @@ public class SettleTicketDialog extends POSDialog implements CardInputListener {
 
 		paymentView = new PaymentView(this);
 		paymentView.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+                paymentView.setBackground(Color.decode("#4d4d4d"));
 
 		getContentPane().add(centerPanel, BorderLayout.CENTER);
 		getContentPane().add(paymentView, BorderLayout.EAST);
@@ -145,17 +148,25 @@ public class SettleTicketDialog extends POSDialog implements CardInputListener {
 	public void updateView() {
 		if (ticket == null) {
 			tfSubtotal.setText(""); //$NON-NLS-1$
+                        tfSubtotal.setForeground(Color.WHITE);
 			tfDiscount.setText(""); //$NON-NLS-1$
+                        tfDiscount.setForeground(Color.WHITE);
 			tfDeliveryCharge.setText(""); //$NON-NLS-1$
+                        tfDeliveryCharge.setForeground(Color.WHITE);
 			tfTax.setText(""); //$NON-NLS-1$
+                        tfTax.setForeground(Color.WHITE);
 			tfTotal.setText(""); //$NON-NLS-1$
+                        tfTotal.setForeground(Color.WHITE);
 			tfGratuity.setText(""); //$NON-NLS-1$
+                        tfGratuity.setForeground(Color.WHITE);
 			return;
 		}
 		tfSubtotal.setText(NumberUtil.formatNumber(ticket.getSubtotalAmount()));
+                tfSubtotal.setForeground(Color.WHITE);
 		tfDiscount.setText(NumberUtil.formatNumber(ticket.getDiscountAmount()));
+                tfDiscount.setForeground(Color.WHITE);
 		tfDeliveryCharge.setText(NumberUtil.formatNumber(ticket.getDeliveryCharge()));
-
+                tfDeliveryCharge.setForeground(Color.WHITE);
 		if (Application.getInstance().isPriceIncludesTax()) {
 			tfTax.setText(Messages.getString("TicketView.35")); //$NON-NLS-1$
 		}
@@ -175,15 +186,19 @@ public class SettleTicketDialog extends POSDialog implements CardInputListener {
 
 		JLabel lblTicket = new javax.swing.JLabel();
 		lblTicket.setText(Messages.getString("SettleTicketDialog.0")); //$NON-NLS-1$
+                lblTicket.setForeground(Color.WHITE);
 
 		JLabel labelTicketNumber = new JLabel();
 		labelTicketNumber.setText("[" + String.valueOf(ticket.getId()) + "]"); //$NON-NLS-1$ //$NON-NLS-2$
+                labelTicketNumber.setForeground(Color.WHITE);
 
 		JLabel lblTable = new javax.swing.JLabel();
 		lblTable.setText(", " + Messages.getString("SettleTicketDialog.3")); //$NON-NLS-1$ //$NON-NLS-2$
+                lblTable.setForeground(Color.WHITE);
 
 		JLabel labelTableNumber = new JLabel();
 		labelTableNumber.setText("[" + getTableNumbers(ticket.getTableNumbers()) + "]"); //$NON-NLS-1$ //$NON-NLS-2$
+                labelTableNumber.setForeground(Color.WHITE);
 
 		if (ticket.getTableNumbers().isEmpty()) {
 			labelTableNumber.setVisible(false);
@@ -192,9 +207,11 @@ public class SettleTicketDialog extends POSDialog implements CardInputListener {
 
 		JLabel lblCustomer = new javax.swing.JLabel();
 		lblCustomer.setText(", " + Messages.getString("SettleTicketDialog.10") + ": "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                lblCustomer.setForeground(Color.WHITE);
 
 		JLabel labelCustomer = new JLabel();
 		labelCustomer.setText(ticket.getProperty(Ticket.CUSTOMER_NAME));
+                labelCustomer.setForeground(Color.WHITE);
 
 		if (ticket.getProperty(Ticket.CUSTOMER_NAME) == null) {
 			labelCustomer.setVisible(false);
@@ -202,6 +219,8 @@ public class SettleTicketDialog extends POSDialog implements CardInputListener {
 		}
 
 		JPanel ticketInfoPanel = new com.floreantpos.swing.TransparentPanel(new MigLayout("hidemode 3,insets 0", "[]0[]0[]0[]0[]0[]", "[]")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                
+                ticketInfoPanel.setBackground(Color.decode("#4d4d4d"));
 
 		ticketInfoPanel.add(lblTicket);
 		ticketInfoPanel.add(labelTicketNumber);
@@ -233,58 +252,82 @@ public class SettleTicketDialog extends POSDialog implements CardInputListener {
 		JLabel lblSubtotal = new javax.swing.JLabel();
 		lblSubtotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblSubtotal.setText(com.floreantpos.POSConstants.SUBTOTAL + ":" + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$ //$NON-NLS-2$
+                lblSubtotal.setForeground(Color.WHITE);
+                lblSubtotal.setBackground(Color.decode("#4d4d4d"));
 
 		tfSubtotal = new javax.swing.JTextField(10);
 		tfSubtotal.setHorizontalAlignment(SwingConstants.TRAILING);
 		tfSubtotal.setEditable(false);
+                tfSubtotal.setForeground(Color.WHITE);
+                tfSubtotal.setBackground(Color.decode("#4d4d4d"));
 
 		JLabel lblDiscount = new javax.swing.JLabel();
 		lblDiscount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblDiscount.setText(Messages.getString("TicketView.9") + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$ //$NON-NLS-2$
+                lblDiscount.setForeground(Color.WHITE);
+                lblDiscount.setBackground(Color.decode("#4d4d4d"));
 
 		tfDiscount = new javax.swing.JTextField(10);
 		//	tfDiscount.setFont(tfDiscount.getFont().deriveFont(Font.PLAIN, 16));
 		tfDiscount.setHorizontalAlignment(SwingConstants.TRAILING);
 		tfDiscount.setEditable(false);
 		tfDiscount.setText(ticket.getDiscountAmount().toString());
+                tfDiscount.setForeground(Color.WHITE);
+                tfDiscount.setBackground(Color.decode("#4d4d4d"));
 
 		JLabel lblDeliveryCharge = new javax.swing.JLabel();
 		lblDeliveryCharge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblDeliveryCharge.setText("Delivery Charge:" + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$ //$NON-NLS-2$
+                lblDeliveryCharge.setForeground(Color.WHITE);
+                lblDeliveryCharge.setBackground(Color.decode("#4d4d4d"));
 
 		tfDeliveryCharge = new javax.swing.JTextField(10);
 		tfDeliveryCharge.setHorizontalAlignment(SwingConstants.TRAILING);
 		tfDeliveryCharge.setEditable(false);
+                tfDeliveryCharge.setForeground(Color.WHITE);
+                tfDeliveryCharge.setBackground(Color.decode("#4d4d4d"));
 
 		JLabel lblTax = new javax.swing.JLabel();
 		lblTax.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblTax.setText(com.floreantpos.POSConstants.TAX + ":" + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$ //$NON-NLS-2$
+                lblTax.setForeground(Color.WHITE);
 
 		tfTax = new javax.swing.JTextField(10);
 		//	tfTax.setFont(tfTax.getFont().deriveFont(Font.PLAIN, 16));
 		tfTax.setEditable(false);
 		tfTax.setHorizontalAlignment(SwingConstants.TRAILING);
+                tfTax.setForeground(Color.WHITE);
+                tfTax.setBackground(Color.decode("#4d4d4d"));
 
 		JLabel lblGratuity = new javax.swing.JLabel();
 		lblGratuity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblGratuity.setText(Messages.getString("SettleTicketDialog.5") + ":" + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
+                lblGratuity.setForeground(Color.WHITE);
 
 		tfGratuity = new javax.swing.JTextField(10);
 		tfGratuity.setEditable(false);
 		tfGratuity.setHorizontalAlignment(SwingConstants.TRAILING);
+                tfGratuity.setForeground(Color.WHITE);
+                tfGratuity.setBackground(Color.decode("#4d4d4d"));
+                
 
 		JLabel lblTotal = new javax.swing.JLabel();
 		lblTotal.setFont(lblTotal.getFont().deriveFont(Font.BOLD, PosUIManager.getFontSize(18)));
 		lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 		lblTotal.setText(com.floreantpos.POSConstants.TOTAL + ":" + " " + CurrencyUtil.getCurrencySymbol()); //$NON-NLS-1$ //$NON-NLS-2$
+                lblTotal.setForeground(Color.WHITE);
 
 		tfTotal = new javax.swing.JTextField(10);
 		tfTotal.setFont(tfTotal.getFont().deriveFont(Font.BOLD, PosUIManager.getFontSize(18)));
 		tfTotal.setHorizontalAlignment(SwingConstants.TRAILING);
 		tfTotal.setEditable(false);
+                tfTotal.setForeground(Color.WHITE);
+                tfTotal.setBackground(Color.decode("#4d4d4d"));
 
 		JPanel ticketAmountPanel = new com.floreantpos.swing.TransparentPanel(new MigLayout("hidemode 3,ins 2 2 3 2,alignx trailing,fill", "[grow]2[]", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
+                ticketAmountPanel.setBackground(Color.decode("#4d4d4d"));
+                
 		ticketAmountPanel.add(lblSubtotal, "growx,aligny center"); //$NON-NLS-1$
 		ticketAmountPanel.add(tfSubtotal, "growx,aligny center"); //$NON-NLS-1$
 		ticketAmountPanel.add(lblDiscount, "newline,growx,aligny center"); //$NON-NLS-1$ //$NON-NLS-2$

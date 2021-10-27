@@ -47,6 +47,7 @@ import com.floreantpos.swing.MessageDialog;
 import com.floreantpos.swing.POSToggleButton;
 import com.floreantpos.swing.PosUIManager;
 import com.floreantpos.ui.views.order.actions.GroupSelectionListener;
+import java.awt.Color;
 
 /**
  *

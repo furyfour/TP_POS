@@ -73,6 +73,7 @@ public class ButtonColumn extends AbstractCellEditor
 	public ButtonColumn(JTable table, Action action, int column)
 	{
 		this.table = table;
+                this.table.setBackground(Color.yellow);
 		this.action = action;
 
 		renderButton = new PosButton();

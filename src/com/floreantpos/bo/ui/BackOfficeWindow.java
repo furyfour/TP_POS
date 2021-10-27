@@ -95,6 +95,7 @@ import com.floreantpos.model.UserType;
 import com.floreantpos.swing.PosUIManager;
 import com.floreantpos.table.ShowTableBrowserAction;
 import com.jidesoft.swing.JideTabbedPane;
+import java.awt.Color;
 
 /**
  *
@@ -280,6 +281,7 @@ public class BackOfficeWindow extends javax.swing.JFrame {
 	 */
 	private void initComponents() {
 		jPanel1 = new javax.swing.JPanel();
+                jPanel1.setBackground(Color.decode("#4d4d4d"));
 		tabbedPane = new JideTabbedPane();
 		tabbedPane.setTabShape(JideTabbedPane.SHAPE_WINDOWS);
 		tabbedPane.setShowCloseButtonOnTab(true);
@@ -288,6 +290,7 @@ public class BackOfficeWindow extends javax.swing.JFrame {
 		tabbedPane.setFont(font);
 
 		getContentPane().setLayout(new java.awt.BorderLayout(5, 0));
+                getContentPane().setBackground(Color.decode("#4d4d4d"));
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		jPanel1.setLayout(new java.awt.BorderLayout(5, 0));
@@ -296,7 +299,7 @@ public class BackOfficeWindow extends javax.swing.JFrame {
 		jPanel1.add(tabbedPane, java.awt.BorderLayout.CENTER);
 
 		getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
-	}// </editor-fold>//GEN-END:initComponents
+	}// </editor-fold>                        
 
 	/**
 	 * @param args the command line arguments

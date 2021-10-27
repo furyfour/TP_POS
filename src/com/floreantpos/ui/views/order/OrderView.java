@@ -80,6 +80,7 @@ import com.floreantpos.ui.dialog.SeatSelectionDialog;
 import com.floreantpos.ui.tableselection.TableSelectorDialog;
 import com.floreantpos.ui.tableselection.TableSelectorFactory;
 import com.floreantpos.ui.views.CookingInstructionSelectionView;
+import java.awt.Color;
 
 /**
  *
@@ -121,6 +122,11 @@ public class OrderView extends ViewPanel {
 	/** Creates new form OrderView */
 	private OrderView() {
 		initComponents();
+                midContainer.setBackground(Color.decode("#4d4d4d"));
+                categoryView.setBackground(Color.decode("#4d4d4d"));
+                ticketView.setBackground(Color.decode("#4d4d4d"));
+                actionButtonPanel.setBackground(Color.decode("#4d4d4d"));
+                midContainer.setOpaque(true);
 	}
 
 	public void addView(final String viewName, final JComponent view) {
@@ -130,7 +136,7 @@ public class OrderView extends ViewPanel {
 		}
 		midContainer.add(view, viewName);
 	}
-
+//
 	/** This method is called from within the constructor to
 	 * initialize the form.
 	 * WARNING: Do NOT modify this code. The content of this method is
@@ -174,6 +180,7 @@ public class OrderView extends ViewPanel {
 			if (menuItem != null) {
 				MenuGroup menuGroup = menuItem.getParent();
 				MenuItemView itemView = OrderView.getInstance().getItemView();
+                                itemView.setBackground(Color.decode("#4d4d4d"));
 				if (!menuGroup.equals(itemView.getMenuGroup())) {
 					itemView.setMenuGroup(menuGroup);
 				}
