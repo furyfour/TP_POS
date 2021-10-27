@@ -74,6 +74,7 @@ import com.floreantpos.util.CurrencyUtil;
 import com.floreantpos.util.DrawerUtil;
 import com.floreantpos.util.NumberUtil;
 import com.floreantpos.util.POSUtil;
+import java.awt.Color;
 
 /**
  * 
@@ -102,9 +103,48 @@ public class TicketView extends JPanel {
 	public final static String VIEW_NAME = "TICKET_VIEW"; //$NON-NLS-1$
 
 	public TicketView() {
-		initComponents();
+		initComps();
+                
 	}
 
+        
+        private void initComps() {
+
+		titledBorder.setTitleJustification(TitledBorder.CENTER);
+		setBorder(border);
+		setLayout(new java.awt.BorderLayout(5, 5));
+		itemSearchPanel = new JPanel();
+                itemSearchPanel.setBackground(Color.decode("#4d4d4d"));
+
+		ticketItemActionPanel = new com.floreantpos.swing.TransparentPanel();
+		btnDecreaseAmount = new com.floreantpos.swing.PosButton();
+		btnScrollDown = new com.floreantpos.swing.PosButton();
+		ticketViewerTable = new com.floreantpos.ui.ticket.TicketViewerTable();
+		ticketScrollPane = new PosScrollPane(ticketViewerTable);
+		ticketScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		ticketScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		ticketScrollPane.setPreferredSize(PosUIManager.getSize(180, 200));
+                ticketScrollPane.getViewport().setBackground(Color.decode("#4d4d4d"));
+
+		btnEdit.setEnabled(false);
+
+		createPayButton();
+
+		createTicketItemControlPanel();
+		createItemSearchPanel();
+
+		JPanel centerPanel = new JPanel(new BorderLayout(5, 5));
+                centerPanel.setBackground(Color.decode("#4d4d4d"));
+                centerPanel.setOpaque(true);
+		centerPanel.add(ticketScrollPane);
+
+		add(itemSearchPanel, BorderLayout.NORTH);
+		add(centerPanel);
+		add(ticketItemActionPanel, BorderLayout.EAST);
+		ticketViewerTable.getRenderer().setInTicketScreen(true);
+		ticketViewerTable.getSelectionModel().addListSelectionListener(new TicketItemSelectionListener());
+		setPreferredSize(PosUIManager.getSize(360, 463));
+	}
 	/**
 	 * This method is called from within the constructor to initialize the form.
 	 * WARNING: Do NOT modify this code. The content of this method is always
