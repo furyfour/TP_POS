@@ -52,6 +52,7 @@ import com.floreantpos.ui.views.order.CashierModeNextActionDialog;
 import com.floreantpos.ui.views.order.OrderView;
 import com.floreantpos.util.CurrencyUtil;
 import com.floreantpos.util.NumberUtil;
+import java.awt.Color;
 
 /**
  *
@@ -67,7 +68,7 @@ public class OpenTicketsListDialog extends POSDialog {
 	}
 
 	private void init() {
-		initComponents();
+		initComps();
 		setTitle(com.floreantpos.POSConstants.ACTIVE_TICKETS);
 		titlePanel.setTitle(com.floreantpos.POSConstants.ACTIVE_TICKETS_BEFORE_DRAWER_RESET);
 
@@ -210,6 +211,109 @@ public class OpenTicketsListDialog extends POSDialog {
 		setBounds((screenSize.width - 646) / 2, (screenSize.height - 435) / 2, 646, 435);
 	}// </editor-fold>//GEN-END:initComponents
 
+        	private void initComps() {
+		titlePanel = new com.floreantpos.ui.TitlePanel();
+		transparentPanel1 = new com.floreantpos.swing.TransparentPanel();
+		transparentPanel3 = new com.floreantpos.swing.TransparentPanel();
+
+
+		btnClose = new com.floreantpos.swing.PosButton();
+		transparentPanel4 = new com.floreantpos.swing.TransparentPanel();
+
+		btnScrollUp = new com.floreantpos.swing.PosButton();
+		btnScrollDown = new com.floreantpos.swing.PosButton();
+		transparentPanel2 = new com.floreantpos.swing.TransparentPanel();
+		jScrollPane1 = new javax.swing.JScrollPane();
+		openTicketListTable = new javax.swing.JTable();
+
+		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+		getContentPane().add(titlePanel, java.awt.BorderLayout.NORTH);
+
+		transparentPanel1.setLayout(new java.awt.BorderLayout());
+
+		transparentPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+		transparentPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 5));
+
+		if (!TerminalConfig.isCashierMode()) {
+			btnVoid = new com.floreantpos.swing.PosButton();
+			btnVoid.setText(com.floreantpos.POSConstants.VOID);
+			btnVoid.setPreferredSize(new java.awt.Dimension(100, 50));
+			btnVoid.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent evt) {
+					doVoidTicket(evt);
+				}
+			});
+
+			transparentPanel3.add(btnVoid);
+
+			btnTransferServer = new com.floreantpos.swing.PosButton();
+			btnTransferServer.setText("<html><body><center>TRANSFER<br>SERVER</center></body></html>"); //$NON-NLS-1$
+			btnTransferServer.setPreferredSize(new java.awt.Dimension(100, 50));
+			btnTransferServer.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent evt) {
+					doTransferServer(evt);
+				}
+			});
+
+			transparentPanel3.add(btnTransferServer);
+		}
+
+		btnClose.setText(com.floreantpos.POSConstants.CLOSE);
+		btnClose.setPreferredSize(new java.awt.Dimension(100, 50));
+		btnClose.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				doClose(evt);
+			}
+		});
+
+		transparentPanel3.add(btnClose);
+
+		transparentPanel1.add(transparentPanel3, java.awt.BorderLayout.CENTER);
+
+		transparentPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
+		btnScrollUp.setIcon(IconFactory.getIcon("/ui_icons/", "up.png")); //$NON-NLS-1$ //$NON-NLS-2$
+		btnScrollUp.setPreferredSize(new java.awt.Dimension(80, 50));
+		btnScrollUp.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				doScrollUp(evt);
+			}
+		});
+
+		transparentPanel4.add(btnScrollUp);
+
+		btnScrollDown.setIcon(IconFactory.getIcon("/ui_icons/", "down.png")); //$NON-NLS-1$ //$NON-NLS-2$
+		btnScrollDown.setPreferredSize(new java.awt.Dimension(80, 50));
+		btnScrollDown.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				doScrollDown(evt);
+			}
+		});
+
+		transparentPanel4.add(btnScrollDown);
+
+		transparentPanel1.add(transparentPanel4, java.awt.BorderLayout.WEST);
+
+		getContentPane().add(transparentPanel1, java.awt.BorderLayout.SOUTH);
+
+		transparentPanel2.setLayout(new java.awt.BorderLayout(0, 5));
+
+		transparentPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+		openTicketListTable.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {
+
+		}, new String[] {
+
+		}));
+		jScrollPane1.setViewportView(openTicketListTable);
+
+		transparentPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+		getContentPane().add(transparentPanel2, java.awt.BorderLayout.CENTER);
+
+		java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+		setBounds((screenSize.width - 646) / 2, (screenSize.height - 435) / 2, 646, 435);
+	}
+                
 	private void doScrollUp(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doScrollUp
 		int selectedRow = openTicketListTable.getSelectedRow();
 		int rowCount = tableModel.getRowCount();

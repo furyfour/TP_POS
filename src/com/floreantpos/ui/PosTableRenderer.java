@@ -70,6 +70,7 @@ public class PosTableRenderer extends DefaultTableCellRenderer {
 		}
 		
 		JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, false, row, column);
+
 		
 		return label;
 	}

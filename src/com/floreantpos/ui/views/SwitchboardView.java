@@ -86,6 +86,8 @@ import com.floreantpos.ui.views.order.TicketSelectionDialog;
 import com.floreantpos.ui.views.order.ViewPanel;
 import com.floreantpos.ui.views.payment.GroupSettleTicketDialog;
 import com.floreantpos.util.POSUtil;
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  * 
@@ -145,21 +147,25 @@ public class SwitchboardView extends ViewPanel implements ActionListener, ITicke
 	 */
 	// <editor-fold defaultstate="collapsed" desc=" Generated Code
 	// <editor-fold defaultstate="collapsed"
-	// desc=" Generated Code ">//GEN-BEGIN:initComponents
+	// desc=" Generated Code ">                          
 	private void initComponents() {
 		setLayout(new java.awt.BorderLayout(10, 10));
+                setBackground(Color.decode("#4d4d4d"));
 
 		javax.swing.JPanel centerPanel = new javax.swing.JPanel(new java.awt.BorderLayout(5, 5));
+                centerPanel.setBackground(Color.decode("#4d4d4d"));
 		javax.swing.JPanel ticketsAndActivityPanel = new javax.swing.JPanel(new java.awt.BorderLayout(5, 5));
+                ticketsAndActivityPanel.setBackground(Color.decode("#4d4d4d"));
 
 		ticketsListPanelBorder = BorderFactory.createTitledBorder(null, POSConstants.OPEN_TICKETS_AND_ACTIVITY, TitledBorder.CENTER,
-				TitledBorder.DEFAULT_POSITION);
+				TitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.BOLD, PosUIManager.getFontSize(12)), Color.WHITE);
 
 		ticketsAndActivityPanel.setBorder(new CompoundBorder(ticketsListPanelBorder, new EmptyBorder(2, 2, 2, 2)));
 
 		ticketsAndActivityPanel.add(ticketList, java.awt.BorderLayout.CENTER);
 
 		JPanel activityPanel = createActivityPanel();
+                activityPanel.setBackground(Color.decode("#4d4d4d"));
 
 		ticketsAndActivityPanel.add(activityPanel, java.awt.BorderLayout.SOUTH);
 
@@ -178,10 +184,12 @@ public class SwitchboardView extends ViewPanel implements ActionListener, ITicke
 		centerPanel.add(ticketsAndActivityPanel, java.awt.BorderLayout.CENTER);
 
 		JPanel rightPanel = new JPanel(new BorderLayout(20, 20));
+                rightPanel.setBackground(Color.decode("#4d4d4d"));
 		TitledBorder titledBorder2 = BorderFactory.createTitledBorder(null, "-", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION); //$NON-NLS-1$
 		rightPanel.setBorder(new CompoundBorder(titledBorder2, new EmptyBorder(2, 2, 6, 2)));
 
 		orderPanel = new JPanel(new MigLayout("ins 2 2 0 2, fill, hidemode 3, flowy", "fill, grow", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                orderPanel.setBackground(Color.decode("#4d4d4d"));
 
 		rendererOrderPanel();
 
@@ -266,10 +274,14 @@ public class SwitchboardView extends ViewPanel implements ActionListener, ITicke
 
 	private JPanel createActivityPanel() {
 		JPanel activityPanel = new JPanel(new BorderLayout(5, 5));
+                activityPanel.setBackground(Color.decode("#4d4d4d"));
 		JPanel innerActivityPanel = new JPanel(new MigLayout("hidemode 3, fill, ins 0", "fill, grow", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-
+                innerActivityPanel.setBackground(Color.decode("#4d4d4d"));
+                
 		JPanel firstRowButtonPanel = new JPanel(new GridLayout(1, 0, 5, 5));
+                firstRowButtonPanel.setBackground(Color.decode("#4d4d4d"));
 		final JXCollapsiblePane secondRowButtonPanel = new JXCollapsiblePane();
+                secondRowButtonPanel.setBackground(Color.decode("#4d4d4d"));
 		secondRowButtonPanel.setAnimated(false);
 		secondRowButtonPanel.setCollapsed(true);
 		secondRowButtonPanel.setVisible(false);
@@ -686,7 +698,7 @@ public class SwitchboardView extends ViewPanel implements ActionListener, ITicke
 		ticketList.updateTicketList();
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
+	// Variables declaration - do not modify                     
 
 	//	private PosButton btnBarTab = new PosButton(POSConstants.BAR_TAB_BUTTON_TEXT);
 

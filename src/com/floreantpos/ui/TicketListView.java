@@ -84,7 +84,7 @@ public class TicketListView extends JPanel implements ITicketList {
 
 	public TicketListView() {
 		setLayout(new BorderLayout());
-
+                setBackground(Color.decode("#4d4d4d"));
 		orderFiltersPanel = new OrderFilterPanel(this);
 		add(orderFiltersPanel, BorderLayout.NORTH);
 
@@ -97,14 +97,21 @@ public class TicketListView extends JPanel implements ITicketList {
 	public TicketListView(Integer customerId, boolean customerHistory) {
 		isCustomerHistoryOpen = customerHistory;
 		setLayout(new BorderLayout());
-
+                setBackground(Color.decode("#4d4d4d"));
+                
 		createTicketTable();
 		updateTicketList();
 		updateButtonStatus();
 	}
 
 	private void createTicketTable() {
-		table = new JXTable();
+                table = new JXTable();
+                PosTableRenderer orderListTableRenderer = new PosTableRenderer();
+                table.setBackground(Color.decode("#4d4d4d"));
+                table.getTableHeader().setOpaque(false);
+                table.getTableHeader().setBackground(Color.decode("#4d4d4d"));
+                table.getTableHeader().setForeground(Color.WHITE);
+                table.setOpaque(true);
 		table.setSortable(true);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setColumnControlVisible(true);
@@ -112,9 +119,12 @@ public class TicketListView extends JPanel implements ITicketList {
 		tableModel.setPageSize(25);
 		table.setRowHeight(PosUIManager.getSize(60));
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
-		table.setDefaultRenderer(Object.class, new PosTableRenderer());
-		table.setGridColor(Color.LIGHT_GRAY);
+                orderListTableRenderer.setBackground(Color.decode("#e0e0e0"));
+                table.setDefaultRenderer(Object.class, orderListTableRenderer);
+                                
+		table.setGridColor(Color.DARK_GRAY);
 		table.getTableHeader().setPreferredSize(new Dimension(100, PosUIManager.getSize(40)));
+                
 
 		columnModel = (TableColumnModelExt) table.getColumnModel();
 		columnModel.getColumn(0).setPreferredWidth(30);
@@ -169,6 +179,7 @@ public class TicketListView extends JPanel implements ITicketList {
 	private void restoreTableColumnsVisibility() {
 		String recordedSelectedColumns = TerminalConfig.getTicketListViewHiddenColumns();
 		TableColumnModelExt columnModel = (TableColumnModelExt) table.getColumnModel();
+                table.setBackground(Color.decode("#4d4d4d"));
 
 		if (recordedSelectedColumns.isEmpty()) {
 			return;
@@ -193,7 +204,6 @@ public class TicketListView extends JPanel implements ITicketList {
 	}
 
 	private void createScrollPane() {
-
 		if (!isCustomerHistoryOpen) {
 			btnOrderFilters = new POSToggleButton();
 			btnOrderFilters.setText("<html>" + Messages.getString("SwitchboardView.2") + "</html>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -210,6 +220,7 @@ public class TicketListView extends JPanel implements ITicketList {
 		int height = PosUIManager.getSize(40);
 
 		JPanel topButtonPanel = new JPanel(new MigLayout("ins 0", "grow", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                topButtonPanel.setBackground(Color.decode("#4d4d4d"));
 		ColumnControlButton controlButton = new ColumnControlButton(table);
 		if (!isCustomerHistoryOpen) {
 			topButtonPanel.add(controlButton, "h " + height + "!, grow, wrap"); //$NON-NLS-1$
@@ -218,13 +229,15 @@ public class TicketListView extends JPanel implements ITicketList {
 		topButtonPanel.add(btnPrevious, "h " + height + "!, grow, wrap"); //$NON-NLS-1$
 
 		JPanel downButtonPanel = new JPanel(new MigLayout("ins 0", "grow", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                downButtonPanel.setBackground(Color.decode("#4d4d4d"));
 		downButtonPanel.add(btnNext, "h " + height + "!, grow, wrap"); //$NON-NLS-1$
 
 		if (!isCustomerHistoryOpen) {
 			downButtonPanel.add(btnOrderFilters, "h " + height + "!, grow, wrap"); //$NON-NLS-1$
-		}
+                        		}
 
 		JPanel tableButtonPanel = new JPanel(new BorderLayout());
+                tableButtonPanel.setBackground(Color.decode("#4d4d4d"));
 		tableButtonPanel.setBorder(BorderFactory.createEmptyBorder(0, 2, 0, 2));
 		tableButtonPanel.setPreferredSize(new Dimension(PosUIManager.getSize(80), 0));
 		tableButtonPanel.add(topButtonPanel, BorderLayout.NORTH);
