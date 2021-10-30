@@ -129,6 +129,7 @@ public class KitchenDisplayView extends ViewPanel implements ActionListener {
 		});
 
 		JPanel topPanel = new JPanel(new MigLayout("fill, ins 2 2 0 2", "[][fill, grow][]", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                topPanel.setBackground(Color.decode("#4d4d4d"));
 		//topPanel.setBorder(BorderFactory.createTitledBorder("Filter: All Printers- All Orders")); //$NON-NLS-1$
 
 		//topPanel.add(label);
@@ -145,7 +146,6 @@ public class KitchenDisplayView extends ViewPanel implements ActionListener {
 		topPanel.add(btnFilter,"w "+ size.width+"!,h "+size.height+"!"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		topPanel.add(btnBack, "w "+ size.width+"!, h "+size.height+"!"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		//topPanel.setBackground(Color.white);
-                topPanel.setBackground(Color.decode("#4d4d4d"));
                         
 		cbTicketTypes.setFont(font);
 		cbTicketTypes.setRenderer(new PosComboRenderer());
@@ -172,6 +172,7 @@ public class KitchenDisplayView extends ViewPanel implements ActionListener {
 		add(firstTopPanel, BorderLayout.NORTH);
 
 		ticketPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+                ticketPanel.setBackground(Color.decode("#4d4d4d"));
 		//JScrollPane scrollPane = new JScrollPane(ticketPanel);
 		//scrollPane.getHorizontalScrollBar().setSize(new Dimension(100, 60));
 		//scrollPane.getHorizontalScrollBar().setPreferredSize(new Dimension(100, 60));
@@ -184,7 +185,7 @@ public class KitchenDisplayView extends ViewPanel implements ActionListener {
 	}
 
 	public void addTicket(KitchenTicket ticket) {
-		addTicket(ticket, true);
+                addTicket(ticket, true);
 	}
 
 	private synchronized void addTicket(KitchenTicket ticket, boolean updateView) {
@@ -204,7 +205,9 @@ public class KitchenDisplayView extends ViewPanel implements ActionListener {
 		if (ticketPanel.addTicket(ticket)) {
 			if (updateView) {
 				//ticketPanel.revalidate();
+                                
 				ticketPanel.repaint();
+                                
 			}
 		}
 	}

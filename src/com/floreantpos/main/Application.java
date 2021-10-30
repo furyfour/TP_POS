@@ -564,7 +564,7 @@ public class Application {
 	}
 
 	public static String getTitle() {
-		return "Tony's POS - Version " + VERSION; //$NON-NLS-1$
+		return "Tony's Pizza POS - Version " + VERSION; //$NON-NLS-1$
 	}
 
 	public static ImageIcon getApplicationIcon() {

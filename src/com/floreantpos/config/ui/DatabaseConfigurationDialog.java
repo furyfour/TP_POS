@@ -49,6 +49,7 @@ import com.floreantpos.ui.dialog.POSDialog;
 import com.floreantpos.ui.dialog.POSMessageDialog;
 import com.floreantpos.util.DatabaseConnectionException;
 import com.floreantpos.util.DatabaseUtil;
+import java.awt.Color;
 
 public class DatabaseConfigurationDialog extends POSDialog implements ActionListener {
 
@@ -80,21 +81,24 @@ public class DatabaseConfigurationDialog extends POSDialog implements ActionList
 
 	public DatabaseConfigurationDialog() throws HeadlessException {
 		super();
-
+                
 		setFieldValues();
 		addUIListeners();
 	}
 
 	protected void initUI() {
 		getContentPane().setLayout(new MigLayout("fill", "[][fill, grow]", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-
+                getContentPane().setBackground(Color.decode("#4d4d4d"));
 		titlePanel = new TitlePanel();
+                titlePanel.setBackground(Color.decode("#4d4d4d"));
 		tfServerAddress = new POSTextField();
 		tfServerPort = new POSTextField();
 		tfDatabaseName = new POSTextField();
 		tfUserName = new POSTextField();
 		tfPassword = new POSPasswordField();
 		databaseCombo = new JComboBox(Database.values());
+                databaseCombo.setBackground(Color.decode("#4d4d4d"));
+                databaseCombo.setForeground(Color.WHITE);
 
 		String databaseProviderName = AppConfig.getDatabaseProviderName();
 		if (StringUtils.isNotEmpty(databaseProviderName)) {
@@ -103,21 +107,30 @@ public class DatabaseConfigurationDialog extends POSDialog implements ActionList
 
 		getContentPane().add(titlePanel, "span, grow, wrap"); //$NON-NLS-1$
 
-		getContentPane().add(new JLabel(Messages.getString("DatabaseConfigurationDialog.8"))); //$NON-NLS-1$
+		JLabel dbcdLabel8 = new JLabel(Messages.getString("DatabaseConfigurationDialog.8"));
+                dbcdLabel8.setForeground(Color.WHITE);
+                getContentPane().add(dbcdLabel8); //$NON-NLS-1$
+                
 		getContentPane().add(databaseCombo, "grow, wrap"); //$NON-NLS-1$
+                
 		lblServerAddress = new JLabel(Messages.getString("DatabaseConfigurationDialog.10") + ":"); //$NON-NLS-1$ //$NON-NLS-2$
+                lblServerAddress.setForeground(Color.WHITE);
 		getContentPane().add(lblServerAddress);
 		getContentPane().add(tfServerAddress, "grow, wrap"); //$NON-NLS-1$
 		lblServerPort = new JLabel(Messages.getString("DatabaseConfigurationDialog.13") + ":"); //$NON-NLS-1$ //$NON-NLS-2$
+                lblServerPort.setForeground(Color.WHITE);
 		getContentPane().add(lblServerPort);
 		getContentPane().add(tfServerPort, "grow, wrap"); //$NON-NLS-1$
 		lblDbName = new JLabel(Messages.getString("DatabaseConfigurationDialog.16") + ":"); //$NON-NLS-1$ //$NON-NLS-2$
+                lblDbName.setForeground(Color.WHITE);
 		getContentPane().add(lblDbName);
 		getContentPane().add(tfDatabaseName, "grow, wrap"); //$NON-NLS-1$
 		lblUserName = new JLabel(Messages.getString("DatabaseConfigurationDialog.19") + ":"); //$NON-NLS-1$ //$NON-NLS-2$
+                lblUserName.setForeground(Color.WHITE);
 		getContentPane().add(lblUserName);
 		getContentPane().add(tfUserName, "grow, wrap"); //$NON-NLS-1$
 		lblDbPassword = new JLabel(Messages.getString("DatabaseConfigurationDialog.22") + ":"); //$NON-NLS-1$ //$NON-NLS-2$
+                lblDbPassword.setForeground(Color.WHITE);
 		getContentPane().add(lblDbPassword);
 		getContentPane().add(tfPassword, "grow, wrap"); //$NON-NLS-1$
 		getContentPane().add(new JSeparator(), "span, grow, gaptop 10"); //$NON-NLS-1$
@@ -130,6 +143,7 @@ public class DatabaseConfigurationDialog extends POSDialog implements ActionList
 		btnExit.setActionCommand(CANCEL);
 
 		JPanel buttonPanel = new JPanel(new MigLayout("inset 0, fill", "grow", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                buttonPanel.setBackground(Color.decode("#4d4d4d"));
 
 		btnCreateDb = new PosButton(Messages.getString("DatabaseConfigurationDialog.29").toUpperCase()); //$NON-NLS-1$
 		btnCreateDb.setActionCommand(CREATE_DATABASE);

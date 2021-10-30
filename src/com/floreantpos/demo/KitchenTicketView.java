@@ -157,7 +157,7 @@ public class KitchenTicketView extends JPanel {
 
 	private void createTable(KitchenTicket ticket) {
 		tableModel = new KitchenTicketTableModel(ticket.getTicketItems());
-		table = new JTable(tableModel);
+                table = new JTable(tableModel);
 		table.setRowSelectionAllowed(false);
 		table.setCellSelectionEnabled(false);
 		table.setRowHeight(30);
@@ -166,8 +166,9 @@ public class KitchenTicketView extends JPanel {
 			@Override
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 				Component rendererComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-
+                                //rendererComponent.setBackground(Color.decode("#4d4d4d"));
 				KitchenTicketItem ticketItem = tableModel.getRowData(row);
+
 
 				if (ticketItem != null && ticketItem.getStatus() != null) {
 					if (ticketItem.getStatus().equalsIgnoreCase(KitchenTicketStatus.DONE.name())) {
@@ -217,6 +218,7 @@ public class KitchenTicketView extends JPanel {
 				if (ticketItem.getQuantity() <= 0) {
 					return new JLabel();
 				}
+                                
 				return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			}
 
@@ -231,6 +233,7 @@ public class KitchenTicketView extends JPanel {
 
 		};
 		scrollPane = new JScrollPane(table);
+                scrollPane.getViewport().setBackground(Color.decode("#4d4d4d"));
 		add(scrollPane);
 	}
 
