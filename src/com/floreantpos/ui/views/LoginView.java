@@ -25,6 +25,7 @@ package com.floreantpos.ui.views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -79,6 +80,7 @@ public class LoginView extends ViewPanel {
 	private com.floreantpos.swing.PosButton btnShutdown;
 	private com.floreantpos.swing.PosButton btnClockOUt;
 	private JLabel lblTerminalId;
+        private JLabel lblRestaurantName;
 	private JPanel centerPanel = new JPanel(new MigLayout("al center center", "sg", "100")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	private static LoginView instance;
 	private JPanel mainPanel;
@@ -116,6 +118,12 @@ public class LoginView extends ViewPanel {
                 lblTerminalId.setForeground(Color.WHITE);
                 lblTerminalId.setFont(new Font("Dialog", Font.BOLD, PosUIManager.getFontSize(18))); //$NON-NLS-1$
 		lblTerminalId.setHorizontalAlignment(SwingConstants.CENTER);
+                
+                //lblRestaurantName = new JLabel(Application.getInstance().getRestaurant().getName());
+		//lblRestaurantName.setPreferredSize(new Dimension(1000, 100));
+		//lblRestaurantName.setForeground(Color.BLACK);
+		//lblRestaurantName.setFont(new Font("Dialog", Font.BOLD, PosUIManager.getFontSize(28)));
+		//lblRestaurantName.setHorizontalAlignment(SwingConstants.CENTER);
 
 		mainPanel = new JPanel(new BorderLayout());
 		mainPanel.add(lblTerminalId, BorderLayout.NORTH);
