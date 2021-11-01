@@ -466,12 +466,33 @@ public class SettleTicketDialog extends POSDialog implements CardInputListener {
 				case CREDIT_MASTER_CARD:
 				case CREDIT_AMEX:
 				case CREDIT_DISCOVERY:
-					payUsingCard(cardName, tenderAmount);
+					//payUsingCard(cardName, tenderAmount);
+                                        if (!confirmPayment()) {
+						return;
+					}
+
+					transaction = paymentType.createTransaction();
+					transaction.setTicket(ticket);
+					transaction.setCaptured(true);
+					setTransactionAmounts(transaction);
+
+					settleTicket(transaction);
 					break;
 
 				case DEBIT_VISA:
 				case DEBIT_MASTER_CARD:
-					payUsingCard(cardName, tenderAmount);
+					//payUsingCard(cardName, tenderAmount);
+                                        if (!confirmPayment()) {
+						return;
+					}
+
+					transaction = paymentType.createTransaction();
+					transaction.setTicket(ticket);
+					transaction.setCaptured(true);
+					setTransactionAmounts(transaction);
+
+					settleTicket(transaction);
+					
 					break;
 
 				case GIFT_CERTIFICATE:
