@@ -97,10 +97,8 @@ public class LoginView extends ViewPanel {
 		width = PosUIManager.getSize(600);
 		height = PosUIManager.getSize(100);
 		centerPanel.setLayout(new MigLayout("al center center", "sg fill", String.valueOf(height))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		//JLabel titleLabel = new JLabel(IconFactory.getIcon("/ui_icons/", "title.png")); //$NON-NLS-1$ //$NON-NLS-2$
                 JLabel titleLabel = new JLabel(IconFactory.getIcon("/ui_icons/", "TP_POS.png")); //$NON-NLS-1$ //$NON-NLS-2$
 		titleLabel.setOpaque(true);
-		//titleLabel.setBackground(Color.WHITE);
                 titleLabel.setBackground(Color.decode("#4d4d4d"));
 
 		JPanel panel = new JPanel(new BorderLayout());

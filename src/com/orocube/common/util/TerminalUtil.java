@@ -15,6 +15,7 @@ public class TerminalUtil
     
     static {
         final Preferences preferences = Preferences.userNodeForPackage(TerminalUtil.class);
+        //TerminalUtil.uid = preferences.get("a$@d55#", null);
         TerminalUtil.uid = preferences.get("a$@d55#", null);
         if (StringUtils.isEmpty(TerminalUtil.uid)) {
             preferences.put("a$@d55#", TerminalUtil.uid = UUID.randomUUID().toString());
