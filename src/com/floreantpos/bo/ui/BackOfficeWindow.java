@@ -39,7 +39,6 @@ import javax.swing.JMenuBar;
 
 import com.floreantpos.Messages;
 import com.floreantpos.actions.AboutAction;
-import com.floreantpos.actions.UpdateAction;
 import com.floreantpos.bo.actions.AttendanceHistoryAction;
 import com.floreantpos.bo.actions.CategoryExplorerAction;
 import com.floreantpos.bo.actions.ConfigureRestaurantAction;
@@ -185,7 +184,6 @@ public class BackOfficeWindow extends javax.swing.JFrame {
 		}
 
 		JMenu helpMenu = new JMenu(Messages.getString("BackOfficeWindow.0")); //$NON-NLS-1$
-		helpMenu.add(new UpdateAction());
 		helpMenu.add(new AboutAction());
 		menuBar.add(helpMenu);
 
