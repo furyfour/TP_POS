@@ -1,0 +1,35 @@
+Oct 24 2021 - Initial Commit - 1st build based on Floreant 1.4-1707
+
+Oct 24 2021 - Removed AbstractFloreantPlugin and Mercurypay related classes
+	Removed Mercurypay related imports and references in other classes
+	Removed polymorphic references to AbstractFloreantPlugin in several classes
+  	Updated com/floreantpos/util/AESencrp.java to use java.util.Base64 instead of sun.misc.Base64Encoder / Base64Decoder (deprecated)
+
+Oct 24 2021 - Removed overrides that not need exist in child classes of OrderServiceExtension and PaymentGatewayPlugin
+	Removed a great deal of code in ExtensionManager dealing with managing plugins
+	
+Oct 24 2021 - Branding in titlebar
+
+Oct 24 2021 - Version 1.03 - Login page branding and aesthetics- Added and swapped out icon and background behind icon in header
+
+Oct 25 2021 - Changing background color to dark mode - Kitchen Display, Numeric Keypad
+
+Oct 27 2021 - Version 1.05 - Changing background color to dark mode - Back office, Main Application, Button Column, Qwerty Keypad, TicketViewer, OrderView, PaymentView, SettleTicket
+	
+Oct 27 2021 - Changing background color to dark mode - Ok-Cancel Option, Password Entry, SelectionView, PaymentView
+
+Oct 27 2021 - Changing background color to dark mode - TicketView
+
+Oct 29 2021 - Version 1.07 - Changed "ENTER SECRET KEY" entry to "ENTER PIN" 
+	Changing background color to dark mode - TicketListView, SwitchboardView
+	Workaround for immutable code created by Form Editor utility (believe from IntelliJ IDE) - commented immutable method and replaced method and references with copy.
+	Fixed background color to dark mode in above class
+	
+Oct 29 2021 - Version 1.08 - Changed Title Bar to read "Tony's Pizza POS"
+	Changing background color to dark mode - DatabaseConfigurationDialog, KitchenDisplayView, KitchenTicketView
+	
+Nov 1 2021 - Version 1.1.0 - Removed references pointing to credit/debit card swipe code and replaced with paying as cash in SettleTicketDialog 
+	
+Nov 22 2021 - Version 1.1.1 - Removed update mechanism and Update menu item from back office; Branded About menu with mentions of Floreant 
+
+Nov 23 2021 - Version 1.1.2 - Modified Logo on main application page to give credit to FLoreant Team - Orocube LLC.  Added Moonrank License File to Source
